@@ -1,10 +1,11 @@
 import { Header } from "./components/layouts/Header";
+import { HeroSection } from "./components/sections/HeroSection";
 function App() {
   return (
     <>
       <Header />
       <main>
-        <h1 className="text-3xl">Hello World</h1>
+        <HeroSection />
       </main>
     </>
   );
