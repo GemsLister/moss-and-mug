@@ -36,13 +36,13 @@ export const Footer = () => {
             <div className="mt-4 space-y-3">
               <p className="flex items-start gap-3 text-slate-700">
                 <MapPin className="mt-0.5 size-5 shrink-0 text-brand-green" />
-                <span>Your neighborhood, your city</span>
+                <span>Sayre Highway, Malaybalay City</span>
               </p>
               <a
                 href="mailto:hello@mossandmug.example"
                 className="block text-slate-700 transition-colors hover:text-brand-green"
               >
-                hello@mossandmug.example
+                mossmug@mossandmug.example
               </a>
             </div>
           </div>
