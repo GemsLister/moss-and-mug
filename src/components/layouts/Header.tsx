@@ -9,15 +9,15 @@ export const Header = () => {
   const navs = [
     {
       name: "The Menu",
-      href: "/",
+      href: "#menu",
     },
     {
       name: "Our little story",
-      href: "/about",
+      href: "#story",
     },
     {
       name: "Come by",
-      href: "/contact",
+      href: "#visit",
     },
   ];
 
@@ -39,7 +39,7 @@ export const Header = () => {
       </div>
 
       <div className="flex justify-between py-4 px-3">
-        <a href="/" className="flex gap-2 items-center">
+        <a href="#hero" className="flex gap-2 items-center">
           <img
             src={MossAndMugLogo}
             alt="moss-and-mug-logo"
@@ -71,7 +71,7 @@ export const Header = () => {
             </a>
           ))}
         </nav>
-        <PrimaryButton className="hidden text-[clamp(14px,.9vw,16rem)] md:flex transition-transform hover:scale-105">
+        <PrimaryButton href="#menu" className="hidden text-[clamp(14px,.9vw,16rem)] md:flex transition-transform hover:scale-105">
           Find your favorite
           <ArrowUpRight className="text-[clamp(14px,.9vw,16rem)] text-slate-50" />
         </PrimaryButton>
@@ -87,7 +87,7 @@ export const Header = () => {
       >
         {/* Header of the overlay */}
         <div className="flex justify-between items-center py-4 px-3 border-b border-slate-200">
-          <a href="/" className="flex gap-2 items-center">
+          <a href="#hero" className="flex gap-2 items-center">
             <img
               src={MossAndMugLogo}
               alt="moss-and-mug-logo"
@@ -133,6 +133,7 @@ export const Header = () => {
         {/* CTA at the bottom */}
         <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-slate-200">
           <PrimaryButton
+            href="#menu"
             className={`w-full justify-center text-base transition-all duration-500 ${
               isOpen
                 ? "opacity-100 translate-y-0"
