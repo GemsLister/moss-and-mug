@@ -1,75 +1,85 @@
-# React + TypeScript + Vite
+# Moss & Mug
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A warm, responsive neighborhood café landing page built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS v4**.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **TypeScript**
+- **Vite** — dev server & build tool
+- **Tailwind CSS v4** — utility-first styling
+- **lucide-react** — icons
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# install dependencies
+npm install
 
-## Expanding the ESLint configuration
+# start dev server
+npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# build for production
+npm run build
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+# preview production build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
 
 ```
+src/
+├── App.tsx                        # page composition
+├── index.css                      # tailwind config, brand colors, animations
+├── assets/                        # images & logo
+├── components/
+│   ├── buttons/
+│   │   └── PrimaryButton.tsx
+│   ├── layouts/
+│   │   ├── Header.tsx             # nav + animated mobile menu
+│   │   └── Footer.tsx
+│   ├── sections/
+│   │   ├── HeroSection.tsx        # full-bleed image + floating card
+│   │   ├── MenuSection.tsx        # coffee bar + kitchen menus
+│   │   ├── StorySection.tsx       # interior image + story panel
+│   │   └── CtaSection.tsx         # visit CTA banner
+│   └── ui/
+│       └── Reveal.tsx             # scroll-triggered animation wrapper
+```
+
+## Sections
+
+| Section | Description |
+|---------|-------------|
+| **Hero** | Full-bleed café image with a floating text card, plus a 01–04 feature bar |
+| **Menu** | "The coffee bar" and "Fresh from our kitchen" lists with prices |
+| **Story** | Interior photo alongside the brand story on a dark green panel |
+| **CTA** | "There's a cup with your name on it." banner |
+| **Footer** | Brand, contact, hours, and friendly reminder with back-to-top |
+
+## Design Tokens
+
+Defined in `src/index.css` under `@theme`:
+
+| Token | Hex |
+|-------|-----|
+| `brand-darkgreen` | `#1f3f28` |
+| `brand-green` | `#56815b` |
+| `brand-lightgreen` | `#e5f0e1` |
+| `brand-white` | `#faf8ed` |
+| `brand-tan` | `#e8d5a8` |
+| `brand-yellow` | `#d4a94a` |
+
+## Animations
+
+- **Reveal component** — `fade-up`, `fade-in`, `scale-in` triggered by `IntersectionObserver` on scroll.
+- **Hero** — image fades in, floating card fades up.
+- **Mobile menu** — overlay fades in, close button rotates in, links stagger-slide from the left, CTA slides up.
+- **Hover** — image zoom, arrow nudges, color/scale transitions.
+- All animations respect `prefers-reduced-motion`.
+
+## Responsiveness
+
+- **Mobile** — single-column, full-bleed hero image with static card, 2×2 feature grid, animated full-screen menu.
+- **Tablet (`md`)** — hero card floats over the image, 2-column feature row.
+- **Desktop (`lg`)** — wider card, 4-column feature row, side-by-side story layout.
