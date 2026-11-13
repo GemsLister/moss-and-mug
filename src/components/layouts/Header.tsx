@@ -40,7 +40,7 @@ export const Header = () => {
         </span>
 
         {/* Shows on mobile devices */}
-        <span className="border border-slate-300 p-1 rounded-md md:hidden">
+        <span className="flex items-center border border-slate-300 p-1 rounded-md md:hidden">
           <Menu className="text-[clamp(1rem,3vw,2rem)] text-brand-darkgreen" />
         </span>
         {/* For tablet and desktop devices */}
