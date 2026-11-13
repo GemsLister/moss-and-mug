@@ -81,7 +81,7 @@ export const MenuSection = () => {
   return (
     <section
       id="menu"
-      className="bg-brand-white font-figtree px-4 py-16 md:px-8 md:py-24 lg:px-16"
+      className="bg-brand-white font-figtree px-4 py-16 md:px-8 md:py-24 lg:px-16 scroll-mt-16"
     >
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Left: intro + image */}

@@ -23,7 +23,7 @@ const numberedSection = [
 
 export const HeroSection = () => {
   return (
-    <section className="flex flex-col font-figtree">
+    <section id="hero" className="flex flex-col font-figtree scroll-mt-16">
       {/* Full-bleed image with floating text card */}
       <div className="relative">
         {/* Background image */}
@@ -60,12 +60,12 @@ export const HeroSection = () => {
 
             <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
               <div>
-                <PrimaryButton>
+                <PrimaryButton href="#menu">
                   <span className="inline-block p-1">See what's brewing</span>
                   <ArrowUpRight className="size-4 inline-block" />
                 </PrimaryButton>
               </div>
-              <a href="#" className="text-brand-darkgreen font-medium">
+              <a href="#story" className="text-brand-darkgreen font-medium transition-colors hover:text-brand-green">
                 Get to know us <ArrowDown className="size-4 inline-block" />
               </a>
             </div>

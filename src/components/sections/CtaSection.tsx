@@ -3,7 +3,7 @@ import { Reveal } from "../ui/Reveal";
 
 export const CtaSection = () => {
   return (
-    <section className="bg-brand-tan font-figtree px-4 py-14 md:px-8 md:py-20 lg:px-16">
+    <section id="visit" className="bg-brand-tan font-figtree px-4 py-14 md:px-8 md:py-20 lg:px-16 scroll-mt-16">
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
         <Reveal animation="fade-up" className="max-w-xl">
           <p className="text-xs font-semibold uppercase tracking-widest text-brand-darkgreen/70">
