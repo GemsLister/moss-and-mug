@@ -6,7 +6,7 @@ export const StorySection = () => {
   return (
     <section
       id="story"
-      className="bg-brand-white font-figtree"
+      className="bg-brand-white font-figtree scroll-mt-16"
     >
       <div className="flex flex-col lg:flex-row lg:items-stretch">
         {/* Image */}
@@ -56,7 +56,7 @@ export const StorySection = () => {
 
             <Reveal animation="fade-up" delay={400}>
               <a
-                href="#about"
+                href="#visit"
                 className="group mt-8 inline-flex items-center gap-2 font-semibold text-brand-white underline decoration-brand-white/40 decoration-2 underline-offset-8 transition-colors hover:text-brand-green"
               >
                 A little more about us
