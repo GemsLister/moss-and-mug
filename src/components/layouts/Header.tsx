@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import MossAndMugLogo from "../../assets/moss-mug-logo.png";
@@ -28,6 +28,20 @@ export const Header = () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  // Close the menu, release the scroll lock, then scroll to the target section
+  const handleNavClick =
+    (href: string) => (event: MouseEvent<HTMLElement>) => {
+      event.preventDefault();
+      setIsOpen(false);
+      document.body.style.overflow = "";
+      const target = document.querySelector(href);
+      if (target) {
+        requestAnimationFrame(() =>
+          target.scrollIntoView({ behavior: "smooth", block: "start" })
+        );
+      }
+    };
 
   return (
     <header className="border border-slate-300 font-figtree">
@@ -87,7 +101,11 @@ export const Header = () => {
       >
         {/* Header of the overlay */}
         <div className="flex justify-between items-center py-4 px-3 border-b border-slate-200">
-          <a href="#hero" className="flex gap-2 items-center">
+          <a
+            href="#hero"
+            onClick={handleNavClick("#hero")}
+            className="flex gap-2 items-center"
+          >
             <img
               src={MossAndMugLogo}
               alt="moss-and-mug-logo"
@@ -114,7 +132,7 @@ export const Header = () => {
             <a
               key={nav.href}
               href={nav.href}
-              onClick={() => setIsOpen(false)}
+              onClick={handleNavClick(nav.href)}
               className={`flex items-center justify-between py-7 border-b border-slate-200 text-3xl font-bold text-brand-darkgreen transition-all duration-500 hover:text-brand-green ${
                 isOpen
                   ? "opacity-100 translate-x-0"
@@ -134,6 +152,7 @@ export const Header = () => {
         <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-slate-200">
           <PrimaryButton
             href="#menu"
+            onClick={handleNavClick("#menu")}
             className={`w-full justify-center text-base transition-all duration-500 ${
               isOpen
                 ? "opacity-100 translate-y-0"
